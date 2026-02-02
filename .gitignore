@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Streamlit
+.streamlit/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Downloaded media files
+*.mp3
+*.mp4
+*.webm
+*.m4a
+*.wav
+*.flac
+*.aac
+*.ogg
+*.opus
+
+# Spotify cache
+.spotdl-cache/
+*.spotdl
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
