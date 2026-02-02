@@ -174,7 +174,7 @@ def display_single_video(video: VideoInfo):
     
     with col1:
         if video.thumbnail:
-            st.image(video.thumbnail, use_container_width=True)
+            st.image(video.thumbnail, width="stretch")
     
     with col2:
         st.markdown(f"**Uploader:** {video.uploader}")
@@ -214,7 +214,7 @@ def display_single_video(video: VideoInfo):
             selected_format = st.selectbox(
                 "Select Quality",
                 format_options,
-                format_index=0,
+                index=0,
                 key="single_video_quality",
                 format_func=lambda x: format_labels.get(x, x)
             )
@@ -308,9 +308,10 @@ def display_playlist(playlist: PlaylistInfo):
         
         with col1:
             is_selected = st.checkbox(
-                "",
+                f"Select video {idx + 1}",
                 value=idx in st.session_state.selected_videos,
-                key=f"video_checkbox_{idx}"
+                key=f"video_checkbox_{idx}",
+                label_visibility="collapsed"
             )
             if is_selected:
                 selected.append(idx)
@@ -602,9 +603,10 @@ def display_spotify_playlist(playlist: SpotifyPlaylist):
         
         with col1:
             is_selected = st.checkbox(
-                "",
+                f"Select track {idx + 1}",
                 value=idx in st.session_state.selected_tracks,
-                key=f"track_checkbox_{idx}"
+                key=f"track_checkbox_{idx}",
+                label_visibility="collapsed"
             )
             if is_selected:
                 selected.append(idx)
