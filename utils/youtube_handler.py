@@ -57,10 +57,22 @@ class YouTubeHandler:
     
     PLAYBACK_SPEEDS = [1.0, 1.25, 1.5, 1.75, 2.0]
     
+    # Common options to help avoid 403 errors
+    COMMON_OPTS = {
+        'quiet': True,
+        'no_warnings': True,
+        'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-us,en;q=0.5',
+            'Sec-Fetch-Mode': 'navigate',
+        },
+    }
+    
     def __init__(self):
         self.ydl_opts_info = {
-            'quiet': True,
-            'no_warnings': True,
+            **self.COMMON_OPTS,
             'extract_flat': False,
         }
     
@@ -127,8 +139,7 @@ class YouTubeHandler:
         """Get information about a playlist"""
         try:
             opts = {
-                'quiet': True,
-                'no_warnings': True,
+                **self.COMMON_OPTS,
                 'extract_flat': 'in_playlist',
             }
             
@@ -211,25 +222,23 @@ class YouTubeHandler:
         if is_audio:
             format_config = self.AUDIO_FORMATS[output_format]
             ydl_opts = {
+                **self.COMMON_OPTS,
                 'format': format_config['format'],
                 'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
                 'postprocessors': [{
                     'key': 'FFmpegExtractAudio',
                     'preferredcodec': format_config['postprocessor'],
                 }],
-                'quiet': True,
-                'no_warnings': True,
             }
             if format_config['quality']:
                 ydl_opts['postprocessors'][0]['preferredquality'] = format_config['quality']
         else:
             format_config = self.VIDEO_FORMATS.get(output_format, self.VIDEO_FORMATS['best'])
             ydl_opts = {
+                **self.COMMON_OPTS,
                 'format': format_config['format'],
                 'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
                 'merge_output_format': format_config['ext'],
-                'quiet': True,
-                'no_warnings': True,
             }
         
         if progress_callback:
