@@ -168,7 +168,7 @@ def youtube_tab():
 
 def display_single_video(video: VideoInfo):
     """Display single video information and download options"""
-    st.subheader(f"Video: {video.title}")
+    st.subheader(f"Video: {video.title or 'Unknown'}")
     
     col1, col2 = st.columns([1, 2])
     
@@ -177,7 +177,7 @@ def display_single_video(video: VideoInfo):
             st.image(video.thumbnail, width="stretch")
     
     with col2:
-        st.markdown(f"**Uploader:** {video.uploader}")
+        st.markdown(f"**Uploader:** {video.uploader or 'Unknown'}")
         st.markdown(f"**Duration:** {YouTubeHandler.format_duration(video.duration)}")
         st.markdown(f"**Views:** {video.view_count:,}")
         
@@ -317,13 +317,14 @@ def display_playlist(playlist: PlaylistInfo):
                 selected.append(idx)
         
         with col2:
-            st.markdown(f"**{idx + 1}.** {video.title}")
+            st.markdown(f"**{idx + 1}.** {video.title or 'Unknown'}")
         
         with col3:
             st.text(YouTubeHandler.format_duration(video.duration))
         
         with col4:
-            st.text(video.uploader[:20] + "..." if len(video.uploader) > 20 else video.uploader)
+            uploader = video.uploader or "Unknown"
+            st.text(uploader[:20] + "..." if len(uploader) > 20 else uploader)
     
     st.session_state.selected_videos = selected
     
