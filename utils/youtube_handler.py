@@ -46,13 +46,13 @@ class YouTubeHandler:
     }
     
     VIDEO_FORMATS = {
-        'mp4_1080p': {'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best', 'ext': 'mp4'},
-        'mp4_720p': {'format': 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best', 'ext': 'mp4'},
-        'mp4_480p': {'format': 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]/best', 'ext': 'mp4'},
-        'mp4_360p': {'format': 'bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360][ext=mp4]/best', 'ext': 'mp4'},
-        'webm_1080p': {'format': 'bestvideo[height<=1080][ext=webm]+bestaudio[ext=webm]/best[height<=1080][ext=webm]/best', 'ext': 'webm'},
-        'webm_720p': {'format': 'bestvideo[height<=720][ext=webm]+bestaudio[ext=webm]/best[height<=720][ext=webm]/best', 'ext': 'webm'},
-        'best': {'format': 'bestvideo+bestaudio/best', 'ext': 'mp4'},
+        'mp4_1080p': {'format': 'best[height<=1080][ext=mp4]/bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080]/best', 'ext': 'mp4'},
+        'mp4_720p': {'format': 'best[height<=720][ext=mp4]/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720]/best', 'ext': 'mp4'},
+        'mp4_480p': {'format': 'best[height<=480][ext=mp4]/bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480]/best', 'ext': 'mp4'},
+        'mp4_360p': {'format': 'best[height<=360][ext=mp4]/bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360]/best', 'ext': 'mp4'},
+        'webm_1080p': {'format': 'best[height<=1080][ext=webm]/bestvideo[height<=1080][ext=webm]+bestaudio[ext=webm]/best[height<=1080]/best', 'ext': 'webm'},
+        'webm_720p': {'format': 'best[height<=720][ext=webm]/bestvideo[height<=720][ext=webm]+bestaudio[ext=webm]/best[height<=720]/best', 'ext': 'webm'},
+        'best': {'format': 'best[ext=mp4]/best', 'ext': 'mp4'},
     }
     
     PLAYBACK_SPEEDS = [1.0, 1.25, 1.5, 1.75, 2.0]
