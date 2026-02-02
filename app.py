@@ -114,12 +114,12 @@ def create_download_zip(files: list) -> BytesIO:
 
 def youtube_tab():
     """YouTube downloader tab"""
-    st.header("YouTube Downloader")
+    st.header("YouTube / YouTube Music Downloader")
     
     # URL input
     url = st.text_input(
-        "Enter YouTube URL",
-        placeholder="https://www.youtube.com/watch?v=... or playlist URL",
+        "Enter YouTube or YouTube Music URL",
+        placeholder="https://www.youtube.com/watch?v=... or https://music.youtube.com/watch?v=...",
         key="youtube_url"
     )
     
@@ -732,6 +732,7 @@ def main():
         st.markdown("""
         This application allows you to download:
         - **YouTube** videos and playlists
+        - **YouTube Music** tracks and playlists
         - **Spotify** tracks and playlists
         
         ### Features

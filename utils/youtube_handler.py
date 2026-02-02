@@ -88,14 +88,21 @@ class YouTubeHandler:
     
     @staticmethod
     def is_youtube_url(url: str) -> bool:
-        """Check if URL is a valid YouTube URL"""
+        """Check if URL is a valid YouTube or YouTube Music URL"""
         youtube_patterns = [
             'youtube.com/watch',
             'youtube.com/playlist',
             'youtu.be/',
             'youtube.com/shorts/',
+            'music.youtube.com/watch',
+            'music.youtube.com/playlist',
         ]
         return any(pattern in url for pattern in youtube_patterns)
+    
+    @staticmethod
+    def is_youtube_music_url(url: str) -> bool:
+        """Check if URL is a YouTube Music URL"""
+        return 'music.youtube.com' in url
     
     def get_video_info(self, url: str) -> Optional[VideoInfo]:
         """Get information about a single video"""

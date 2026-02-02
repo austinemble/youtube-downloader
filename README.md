@@ -1,12 +1,13 @@
 # Media Downloader
 
-A Streamlit-based web application for downloading videos and music from YouTube and Spotify.
+A Streamlit-based web application for downloading videos and music from YouTube, YouTube Music, and Spotify.
 
 ## Features
 
-### YouTube
+### YouTube / YouTube Music
 
 - Download single videos or entire playlists
+- Support for both YouTube and YouTube Music links
 - View playlist information (total videos, duration)
 - See duration at different playback speeds (1x, 1.25x, 1.5x, 1.75x, 2x)
 - Select specific videos from playlists
@@ -84,12 +85,14 @@ The application will open in your default browser at `http://localhost:8501`.
 
 ## Usage
 
-### YouTube Downloads
+### YouTube / YouTube Music Downloads
 
 1. Go to the **YouTube** tab
-2. Paste a YouTube URL:
-   - Single video: `https://www.youtube.com/watch?v=VIDEO_ID`
-   - Playlist: `https://www.youtube.com/playlist?list=PLAYLIST_ID`
+2. Paste a YouTube or YouTube Music URL:
+   - YouTube video: `https://www.youtube.com/watch?v=VIDEO_ID`
+   - YouTube playlist: `https://www.youtube.com/playlist?list=PLAYLIST_ID`
+   - YouTube Music: `https://music.youtube.com/watch?v=VIDEO_ID`
+   - YouTube Music playlist: `https://music.youtube.com/playlist?list=PLAYLIST_ID`
 3. Click **Fetch Info**
 4. For playlists:
    - View total videos and duration at different speeds
